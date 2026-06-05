@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Plumbers Anaheim | Licensed & Local</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --blue: #1a3a6b;
+    --accent: #e8460a;
+    --gold: #f5a623;
+    --light: #f4f2ee;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --border: #ddd8d0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--navy);
+    color: #aab4c4;
+    font-size: 13px;
+    padding: 8px 0;
+    letter-spacing: 0.02em;
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: var(--gold); text-decoration: none; }
+  .topbar span { margin: 0 12px; opacity: 0.3; }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #c73a08 !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: white;
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-diagonal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 52%;
+    height: 100%;
+    background: var(--blue);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px 80px 80px;
+    max-width: 600px;
+    animation: fadeUp 0.8s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,70,10,0.2);
+    border: 1px solid var(--accent);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .badge::before { content: '●'; color: var(--accent); font-size: 8px; }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    color: var(--accent);
+    font-style: normal;
+    display: block;
+  }
+  .hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #a8b8cc;
+    max-width: 440px;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: #c73a08; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,70,10,0.3); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    padding: 60px 60px 60px 40px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-4px); }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 13px; color: #7a9abf; margin-top: 4px; letter-spacing: 0.03em; }
+
+  .emergency-card {
+    background: var(--accent);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .emergency-icon { font-size: 32px; }
+  .emergency-card h3 { font-size: 16px; font-weight: 700; color: white; }
+  .emergency-card p { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+  .phone-link { color: white; text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: 0.05em; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .trust-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .trust-icon { font-size: 22px; }
+
+  /* SERVICES */
+  .section { padding: 90px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 54px);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 16px;
+    color: var(--gray);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(10,22,40,0.12); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-emoji { font-size: 36px; margin-bottom: 16px; display: block; }
+  .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .service-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .service-tag {
+    display: inline-block;
+    background: #fef2ec;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-top: 14px;
+  }
+
+  /* WHY US */
+  .why-section { background: var(--navy); color: white; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-left h2 { color: white; margin-bottom: 20px; }
+  .why-left p { color: #8aa0be; font-size: 16px; line-height: 1.8; margin-bottom: 40px; }
+  .why-features { display: flex; flex-direction: column; gap: 20px; }
+  .why-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+  .why-feature:hover { background: rgba(255,255,255,0.07); }
+  .why-feature-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(232,70,10,0.15);
+    border: 1px solid rgba(232,70,10,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .why-feature h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .why-feature p { font-size: 13px; color: #7a9abf; line-height: 1.5; }
+
+  .why-right { position: relative; }
+  .review-stack { display: flex; flex-direction: column; gap: 16px; }
+  .review-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s;
+  }
+  .review-card:hover { transform: translateX(6px); }
+  .stars { color: var(--gold); font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
+  .review-text { font-size: 14px; color: #c8d8e8; line-height: 1.6; margin-bottom: 14px; font-style: italic; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .reviewer-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+  }
+  .reviewer-name { font-size: 14px; font-weight: 600; }
+  .reviewer-sub { font-size: 12px; color: #5a7a9a; }
+  .google-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #7a9abf;
+  }
+
+  /* SERVICE AREA */
+  .area-section { background: var(--white); }
+  .area-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .area-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .area-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 16px;
+    background: var(--light);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .area-item:hover { background: #fef2ec; border-color: var(--accent); color: var(--accent); }
+  .area-item::before { content: '📍'; font-size: 14px; }
+
+  .cta-box {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.08;
+  }
+  .cta-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  .cta-box p { color: #8aa0be; font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+  .cta-phone {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .cta-hours { font-size: 13px; color: #5a7a9a; }
+
+  /* FOOTER */
+  footer {
+    background: #060e1c;
+    color: #5a7a9a;
+    padding: 48px 0 24px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #0f1e34;
+    margin-bottom: 24px;
+  }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: white; margin-bottom: 14px; }
+  .footer-logo span { color: var(--accent); }
+  .footer-desc { font-size: 14px; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { color: white; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: #5a7a9a; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; font-size: 13px; }
+  .lic-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245,166,35,0.1);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-top: 12px;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-diagonal { display: none; }
+    .hero-right { display: none; }
+    .hero-content { padding: 60px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .area-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>📍 Serving Anaheim, LA & Orange County</div>
+    <div>
+      <span>✅ Licensed & Insured</span>
+      <span>|</span>
+      <a href="tel:+17145550192">📞 (714) 555-0192 — Available 24/7</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Master<span>Plumbers</span> Anaheim</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#service-area">Service Area</a></li>
+      <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-diagonal"></div>
+  <div class="hero-content">
+    <div class="badge">Anaheim's #1 Rated Plumber</div>
+    <h1>Fast, Reliable <em>Plumbing Done Right</em></h1>
+    <p>Licensed master plumbers serving Anaheim and Los Angeles County. We show up on time, give upfront pricing, and fix it right the first time.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">📞 Get a Free Estimate</a>
+      <a href="#services" class="btn-outline">View Our Services →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">60<span style="font-size:28px">min</span></div>
+        <div class="stat-label">Avg Response Time</div>
+      </div>
+    </div>
+    <div class="emergency-card">
+      <div class="emergency-icon">🚨</div>
+      <div>
+        <h3>24/7 Emergency Service</h3>
+        <p>Burst pipe? Flooded bathroom? We're on our way.</p>
+        <a href="tel:+17145550192" class="phone-link">(714) 555-0192</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-icon">🏅</span> CA Licensed & Bonded</div>
+    <div class="trust-item"><span class="trust-icon">💰</span> Upfront Flat-Rate Pricing</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Same-Day Appointments</div>
+    <div class="trust-item"><span class="trust-icon">🛡️</span> 100% Satisfaction Guarantee</div>
+    <div class="trust-item"><span class="trust-icon">⭐</span> 4.9 Stars on Google</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Plumbing Services You Can Count On</h2>
+    <p class="section-sub">From emergency repairs to full installations — we handle it all with licensed professionals and no surprise fees.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-emoji">🚨</span>
+        <h3>24/7 Emergency Plumbing</h3>
+        <p>Burst pipes, severe leaks, or overflowing toilets — we respond fast, day or night, with no after-hours surcharge.</p>
+        <span class="service-tag">Always Available</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🔧</span>
+        <h3>Drain Cleaning & Rooter</h3>
+        <p>Slow drains and stubborn clogs cleared fast. We use professional hydro-jetting and camera inspection to find the root cause.</p>
+        <span class="service-tag">Same Day</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🔥</span>
+        <h3>Water Heater Services</h3>
+        <p>Repair, replace, or install traditional and tankless water heaters. We carry all major brands on our trucks.</p>
+        <span class="service-tag">All Brands</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🚿</span>
+        <h3>Leak Detection & Repair</h3>
+        <p>Hidden leaks cause serious damage. Our non-invasive detection equipment finds leaks behind walls and under slabs.</p>
+        <span class="service-tag">Non-Invasive</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🏠</span>
+        <h3>Bathroom & Kitchen Plumbing</h3>
+        <p>Full remodel plumbing, fixture installs, faucet repair, garbage disposals — we handle all residential work.</p>
+        <span class="service-tag">Residential</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🏢</span>
+        <h3>Commercial Plumbing</h3>
+        <p>Serving restaurants, offices, and multi-unit properties throughout LA County with minimal disruption to operations.</p>
+        <span class="service-tag">Commercial</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why-section" id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left reveal">
+        <div class="section-label" style="color:var(--gold)">Why Homeowners Choose Us</div>
+        <h2 class="section-title" style="color:white">The Master Plumbers Difference</h2>
+        <p>We built this company on one simple belief: plumbing should be done honestly, quickly, and right the first time.</p>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-feature-icon">⏰</div>
+            <div>
+              <h4>We Show Up On Time</h4>
+              <p>No 4-hour windows. We give you a precise arrival time and stick to it.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">💬</div>
+            <div>
+              <h4>Transparent Pricing, Always</h4>
+              <p>You get a firm quote before we touch anything. What we quote is what you pay.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">🎓</div>
+            <div>
+              <h4>Licensed Master Plumbers</h4>
+              <p>Not handymen — actual CA-licensed master plumbers on every job.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">✅</div>
+            <div>
+              <h4>Satisfaction Guarantee</h4>
+              <p>If something isn't right, we come back and fix it. No questions asked.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right reveal">
+        <div class="review-stack">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Called at 11pm with a burst pipe. They arrived in under an hour, fixed everything, and the price was exactly what they quoted. These guys are the real deal."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">MR</div>
+              <div>
+                <div class="reviewer-name">Marcus R.</div>
+                <div class="reviewer-sub">Anaheim, CA · Emergency Repair</div>
+              </div>
+            </div>
+            <div class="google-badge">✅ Verified Google Review</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Had a slab leak that two other plumbers couldn't find. Master Plumbers used their camera equipment and located it in 20 minutes. Professional, clean, and reasonably priced."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">SL</div>
+              <div>
+                <div class="reviewer-name">Sandra L.</div>
+                <div class="reviewer-sub">Orange, CA · Leak Detection</div>
+              </div>
+            </div>
+            <div class="google-badge">✅ Verified Google Review</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Best plumbing company I've ever used. Installed a tankless water heater for us, cleaned up perfectly, and walked us through maintenance. Highly recommend!"</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">DK</div>
+              <div>
+                <div class="reviewer-name">David K.</div>
+                <div class="reviewer-sub">Garden Grove, CA · Water Heater</div>
+              </div>
+            </div>
+            <div class="google-badge">✅ Verified Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="section area-section" id="service-area">
+  <div class="container">
+    <div class="area-grid">
+      <div class="reveal">
+        <div class="section-label">Where We Work</div>
+        <h2 class="section-title">Serving All of LA & Orange County</h2>
+        <p class="section-sub" style="margin-bottom:0">If you're in the greater Los Angeles or Orange County area, we've got you covered.</p>
+        <div class="area-list">
+          <div class="area-item">Anaheim</div>
+          <div class="area-item">Los Angeles</div>
+          <div class="area-item">Orange</div>
+          <div class="area-item">Garden Grove</div>
+          <div class="area-item">Santa Ana</div>
+          <div class="area-item">Fullerton</div>
+          <div class="area-item">Long Beach</div>
+          <div class="area-item">Burbank</div>
+          <div class="area-item">Torrance</div>
+          <div class="area-item">Pasadena</div>
+        </div>
+      </div>
+      <div class="reveal" id="contact">
+        <div class="cta-box">
+          <h3>Ready to Fix Your Plumbing Problem?</h3>
+          <p>Get a free, no-obligation estimate. We'll give you a firm price before any work begins — guaranteed.</p>
+          <a href="tel:+17145550192" class="cta-phone">(714) 555-0192</a>
+          <div class="cta-hours">📞 Available 24/7 · Emergency calls welcome</div>
+          <br>
+          <a href="tel:+17145550192" class="btn-primary" style="margin-top:8px; display:inline-flex;">Call Now — It's Free →</a>
+          <div class="lic-badge">🏅 CA License #XXXXXX · Fully Insured</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Master<span>Plumbers</span> Anaheim</div>
+        <p class="footer-desc">Licensed, bonded, and insured plumbing professionals serving Anaheim and Los Angeles County since 2009. Available 24/7 for emergencies.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#">Emergency Plumbing</a></li>
+          <li><a href="#">Drain Cleaning</a></li>
+          <li><a href="#">Water Heaters</a></li>
+          <li><a href="#">Leak Detection</a></li>
+          <li><a href="#">Commercial Plumbing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+17145550192">(714) 555-0192</a></li>
+          <li><a href="#">info@masterplumbersla.com</a></li>
+          <li><a href="#">Anaheim, CA 92801</a></li>
+          <li><a href="#">Mon–Sun: 24/7</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Master Plumbers Anaheim. All rights reserved.</span>
+      <span>CA License #XXXXXX · Licensed, Bonded & Insured</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
