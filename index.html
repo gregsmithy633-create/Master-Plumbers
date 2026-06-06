@@ -3,302 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rudy's Auto Repair</title>
+<title>Gutierrez Tire Shop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --black: #0a0a0b;
-  --carbon: #141416;
-  --steel: #1c1d20;
-  --line: #2a2c30;
-  --red: #d72631;
-  --red-bright: #ff3b46;
-  --silver: #c4c8ce;
-  --white: #f4f5f7;
-  --muted: #8b9099;
-  --yellow: #ffc233;
+  --bg: #fbfaf8;
+  --ink: #15171c;
+  --ink-soft: #383b42;
+  --muted: #6a7280;
+  --line: #e9e6e0;
+  --card: #ffffff;
+  --blue: #0b5cff;
+  --blue-dark: #0847cc;
+  --blue-soft: #eaf1ff;
+  --amber: #ff9500;
+  --green: #16a34a;
+  --dark: #15171c;
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--silver); overflow-x: hidden; }
-
-/* TEXTURE */
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 4px);
-  pointer-events: none; z-index: 1000;
-}
+body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--ink-soft); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 /* TOPBAR */
-.topbar {
-  background: var(--red);
-  padding: 9px 0; text-align: center;
-  font-size: 13px; font-weight: 600; color: white;
-  letter-spacing: 0.04em;
-}
-.topbar a { color: white; text-decoration: none; font-weight: 700; }
+.topbar { background: var(--dark); color: #c3c8d2; padding: 10px 0; font-size: 13px; }
+.topbar-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.topbar a { color: #fff; text-decoration: none; font-weight: 700; }
 
 /* NAV */
-nav {
-  position: sticky; top: 0; z-index: 999;
-  background: rgba(10,10,11,0.95);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 78px; display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.02em; display: flex; align-items: center; gap: 10px; }
-.logo-mark { width: 38px; height: 38px; background: var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; transform: rotate(-5deg); }
-.logo span { color: var(--red); }
-.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.nav-links a:hover { color: var(--white); }
-.nav-cta { background: var(--red); color: white !important; padding: 11px 24px; border-radius: 4px; transition: all 0.3s !important; }
-.nav-cta:hover { background: var(--red-bright) !important; box-shadow: 0 6px 20px rgba(215,38,49,0.4); }
+nav { position: sticky; top: 0; z-index: 999; background: rgba(251,250,248,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; height: 76px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Sora', sans-serif; font-size: 21px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; display: flex; align-items: center; gap: 11px; }
+.logo-badge { width: 38px; height: 38px; background: var(--blue); border-radius: 11px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 19px; }
+.nav-links { display: flex; gap: 34px; list-style: none; align-items: center; }
+.nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+.nav-links a:hover { color: var(--blue); }
+.nav-cta { background: var(--ink); color: #fff !important; padding: 11px 22px; border-radius: 100px; transition: all 0.25s !important; }
+.nav-cta:hover { background: var(--blue) !important; transform: translateY(-1px); }
 
 /* HERO */
-.hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; background: var(--carbon); }
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 75% 30%, rgba(215,38,49,0.08) 0%, transparent 65%); }
-.hero-stripe { position: absolute; top: 0; right: 0; width: 45%; height: 100%; background: var(--steel); clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%); }
-.hero-stripe::before { content: ''; position: absolute; left: 18%; top: 0; width: 6px; height: 100%; background: var(--red); transform: skewX(-11deg); transform-origin: top; }
-.hero-content { position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; width: 100%; }
-.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; background: rgba(215,38,49,0.12); border: 1px solid rgba(215,38,49,0.35); padding: 7px 16px; border-radius: 100px; margin-bottom: 28px; }
-.hero-eyebrow span { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-bright); }
-.hero-eyebrow::before { content: '★'; color: var(--yellow); font-size: 12px; }
-.hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(52px, 6.5vw, 88px); font-weight: 700; line-height: 0.96; color: var(--white); text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 24px; }
-.hero h1 span { color: var(--red); display: block; }
-.hero-desc { font-size: 17px; line-height: 1.75; color: var(--muted); max-width: 440px; margin-bottom: 40px; font-weight: 300; }
-.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-.btn-red { background: var(--red); color: white; padding: 17px 38px; font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
-.btn-red:hover { background: var(--red-bright); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(215,38,49,0.4); }
-.btn-line { border: 2px solid var(--line); color: var(--white); padding: 16px 32px; font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.3s; }
-.btn-line:hover { border-color: var(--red); color: var(--red-bright); }
+.hero { padding: 90px 0 80px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -140px; right: -120px; width: 500px; height: 500px; background: radial-gradient(circle, var(--blue-soft) 0%, transparent 70%); border-radius: 50%; }
+.hero-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; position: relative; z-index: 2; }
+.hero-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--line); padding: 7px 16px 7px 8px; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 26px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.hero-pill-badge { background: var(--amber); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 11px; border-radius: 100px; }
+.hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(44px, 5.6vw, 74px); font-weight: 800; line-height: 1.0; color: var(--ink); letter-spacing: -0.03em; margin-bottom: 22px; }
+.hero h1 span { color: var(--blue); }
+.hero-desc { font-size: 18px; line-height: 1.7; color: var(--muted); max-width: 440px; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 34px; }
+.btn-primary { background: var(--blue); color: #fff; padding: 16px 32px; font-size: 15px; font-weight: 700; text-decoration: none; border-radius: 100px; transition: all 0.25s; display: inline-flex; align-items: center; gap: 9px; box-shadow: 0 8px 24px rgba(11,92,255,0.25); }
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(11,92,255,0.35); }
+.btn-soft { background: var(--card); border: 1px solid var(--line); color: var(--ink); padding: 15px 28px; font-size: 15px; font-weight: 600; text-decoration: none; border-radius: 100px; transition: all 0.25s; }
+.btn-soft:hover { border-color: var(--ink); transform: translateY(-2px); }
+.hero-trust { display: flex; align-items: center; gap: 14px; }
+.hero-trust-stars { color: var(--amber); font-size: 16px; letter-spacing: 1px; }
+.hero-trust-text { font-size: 14px; color: var(--muted); }
+.hero-trust-text strong { color: var(--ink); }
 
-.hero-card { background: var(--steel); border: 1px solid var(--line); border-radius: 10px; padding: 36px 34px; position: relative; }
-.hero-card::before { content: ''; position: absolute; top: 0; left: 34px; right: 34px; height: 3px; background: var(--red); }
-.hero-card-label { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 6px; }
-.hero-card-phone { font-family: 'Oswald', sans-serif; font-size: 42px; font-weight: 700; color: var(--white); display: block; text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
-.hero-card-phone:hover { color: var(--red-bright); }
-.hero-card-hours { font-size: 13px; color: var(--muted); margin-top: 6px; margin-bottom: 24px; }
-.hero-mini-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border-radius: 6px; overflow: hidden; }
-.mini-stat { background: var(--carbon); padding: 18px 12px; text-align: center; }
-.mini-stat-n { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; color: var(--red-bright); line-height: 1; }
-.mini-stat-l { font-size: 10px; color: var(--muted); margin-top: 5px; letter-spacing: 0.06em; text-transform: uppercase; }
+/* HERO VISUAL */
+.hero-visual { position: relative; }
+.visual-card { background: var(--dark); border-radius: 24px; padding: 40px; color: #fff; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(21,23,28,0.25); }
+.visual-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: var(--blue); border-radius: 50%; opacity: 0.28; }
+.visual-label { font-size: 13px; font-weight: 600; color: #868d9b; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; position: relative; }
+.visual-phone { font-family: 'Sora', sans-serif; font-size: 38px; font-weight: 700; color: #fff; text-decoration: none; display: block; letter-spacing: -0.01em; position: relative; transition: color 0.2s; }
+.visual-phone:hover { color: #6da0ff; }
+.visual-hours { font-size: 14px; color: #868d9b; margin-top: 8px; position: relative; }
+.visual-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 28px 0; position: relative; }
+.visual-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
+.vstat-n { font-family: 'Sora', sans-serif; font-size: 30px; font-weight: 700; color: #fff; line-height: 1; }
+.vstat-l { font-size: 12px; color: #868d9b; margin-top: 5px; }
+.float-badge { position: absolute; background: var(--card); border-radius: 16px; padding: 16px 20px; box-shadow: 0 12px 32px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 12px; bottom: -24px; left: -28px; }
+.float-icon { width: 40px; height: 40px; background: var(--amber); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; }
+.float-text strong { display: block; font-size: 14px; color: var(--ink); font-weight: 700; }
+.float-text span { font-size: 12px; color: var(--muted); }
 
-/* MARQUEE */
-.marquee { background: var(--red); overflow: hidden; padding: 14px 0; white-space: nowrap; }
-.marquee-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; }
-.marquee-item { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: white; display: inline-flex; align-items: center; gap: 48px; }
-.marquee-item::after { content: '◆'; font-size: 9px; }
-@keyframes scroll { to { transform: translateX(-50%); } }
+/* TRUST STRIP */
+.trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--card); padding: 28px 0; }
+.trust-strip-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+.trust-feat { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.trust-feat-icon { font-size: 18px; }
 
-/* SECTIONS */
+/* SECTION */
 .section { padding: 100px 0; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-.section-head { margin-bottom: 60px; max-width: 600px; }
-.section-tag { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.section-tag span { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red-bright); }
-.section-tag::before { content: ''; width: 32px; height: 2px; background: var(--red); }
-.section-title { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 5vw, 58px); font-weight: 700; color: var(--white); text-transform: uppercase; line-height: 1; letter-spacing: -0.01em; margin-bottom: 18px; }
-.section-sub { font-size: 16px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.sec-head { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+.sec-head.left { text-align: left; margin-left: 0; }
+.sec-tag { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+.sec-title { font-family: 'Sora', sans-serif; font-size: clamp(32px, 4.2vw, 48px); font-weight: 800; color: var(--ink); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 16px; }
+.sec-sub { font-size: 17px; color: var(--muted); line-height: 1.7; }
 
 /* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.service { background: var(--carbon); border: 1px solid var(--line); border-radius: 8px; padding: 34px 28px; transition: all 0.3s; position: relative; overflow: hidden; }
-.service::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--red); transform: scaleY(0); transform-origin: top; transition: transform 0.3s; }
-.service:hover { background: var(--steel); transform: translateY(-5px); }
-.service:hover::before { transform: scaleY(1); }
-.service-icon { font-size: 34px; margin-bottom: 18px; display: block; }
-.service h3 { font-family: 'Oswald', sans-serif; font-size: 21px; font-weight: 600; color: var(--white); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.01em; }
-.service p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.svc { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px; transition: all 0.3s; }
+.svc:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(21,23,28,0.08); border-color: transparent; }
+.svc-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--blue-soft); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; transition: all 0.3s; }
+.svc:hover .svc-icon { background: var(--blue); transform: scale(1.05); }
+.svc h3 { font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.01em; }
+.svc p { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
-/* WHY / STRIP */
-.why { background: var(--carbon); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-.why-item { text-align: center; }
-.why-icon { width: 64px; height: 64px; margin: 0 auto 20px; background: var(--steel); border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; transition: all 0.3s; }
-.why-item:hover .why-icon { background: var(--red); border-color: var(--red); transform: rotate(-6deg); }
-.why-item h4 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; color: var(--white); text-transform: uppercase; margin-bottom: 8px; }
-.why-item p { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+/* WHY */
+.why { background: var(--card); }
+.why-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center; }
+.why-left h2 { font-family: 'Sora', sans-serif; font-size: clamp(30px, 3.8vw, 44px); font-weight: 800; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+.why-left p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
+.why-points { display: flex; flex-direction: column; gap: 16px; }
+.why-point { display: flex; gap: 14px; align-items: flex-start; }
+.why-check { width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.why-point-text strong { display: block; font-size: 15px; color: var(--ink); font-weight: 700; margin-bottom: 2px; }
+.why-point-text span { font-size: 14px; color: var(--muted); }
+.why-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stat-tile { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; }
+.stat-tile.dark { background: var(--dark); border-color: var(--dark); }
+.stat-tile.blue { background: var(--blue); border-color: var(--blue); }
+.stat-tile-n { font-family: 'Sora', sans-serif; font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+.stat-tile.dark .stat-tile-n, .stat-tile.blue .stat-tile-n { color: #fff; }
+.stat-tile-l { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.stat-tile.dark .stat-tile-l, .stat-tile.blue .stat-tile-l { color: rgba(255,255,255,0.75); }
 
 /* REVIEWS */
-.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review { background: var(--carbon); border: 1px solid var(--line); border-radius: 8px; padding: 30px 28px; transition: all 0.3s; }
-.review:hover { border-color: rgba(215,38,49,0.4); transform: translateY(-4px); }
-.review-stars { color: var(--yellow); font-size: 15px; letter-spacing: 2px; margin-bottom: 16px; }
-.review-text { font-size: 14px; color: var(--silver); line-height: 1.8; margin-bottom: 22px; font-weight: 300; }
-.review-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
-.review-avatar { width: 40px; height: 40px; border-radius: 8px; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 16px; color: white; }
-.review-name { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); text-transform: uppercase; }
-.review-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.rev { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 30px; transition: all 0.3s; }
+.rev:hover { box-shadow: 0 16px 40px rgba(21,23,28,0.07); transform: translateY(-4px); }
+.rev-stars { color: var(--amber); font-size: 15px; letter-spacing: 1px; margin-bottom: 14px; }
+.rev-text { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 22px; }
+.rev-author { display: flex; align-items: center; gap: 12px; }
+.rev-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; }
+.rev-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.rev-meta { font-size: 12px; color: var(--muted); margin-top: 1px; }
 
 /* CTA */
-.cta-section { background: linear-gradient(135deg, var(--steel) 0%, var(--carbon) 100%); border-top: 1px solid var(--line); }
-.cta-wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-.cta-wrap h2 { font-family: 'Oswald', sans-serif; font-size: clamp(34px, 4.5vw, 56px); font-weight: 700; color: var(--white); text-transform: uppercase; line-height: 1; margin-bottom: 18px; }
-.cta-wrap h2 span { color: var(--red); }
-.cta-wrap p { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 30px; font-weight: 300; }
-.cta-box { background: var(--black); border: 1px solid var(--line); border-radius: 10px; padding: 36px; }
-.cta-box-label { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 8px; }
-.cta-box-phone { font-family: 'Oswald', sans-serif; font-size: 38px; font-weight: 700; color: var(--white); text-decoration: none; display: block; transition: color 0.2s; }
-.cta-box-phone:hover { color: var(--red-bright); }
-.cta-box-addr { font-size: 14px; color: var(--muted); margin-top: 14px; line-height: 1.6; display: flex; gap: 8px; }
-.cta-box-hours { font-size: 13px; color: var(--muted); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
-.cta-box-hours strong { color: var(--silver); }
+.cta { padding: 100px 0; }
+.cta-card { background: var(--dark); border-radius: 28px; padding: 64px; position: relative; overflow: hidden; }
+.cta-card::before { content: ''; position: absolute; top: -80px; right: -40px; width: 320px; height: 320px; background: var(--blue); border-radius: 50%; opacity: 0.2; }
+.cta-card::after { content: ''; position: absolute; bottom: -100px; left: 10%; width: 240px; height: 240px; border: 50px solid rgba(255,255,255,0.04); border-radius: 50%; }
+.cta-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+.cta-inner h2 { font-family: 'Sora', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: #fff; letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 16px; }
+.cta-inner p { font-size: 17px; color: #9aa1af; line-height: 1.7; margin-bottom: 32px; }
+.cta-phone-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 30px; }
+.cta-phone-label { font-size: 13px; color: #868d9b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.cta-phone-num { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700; color: #fff; text-decoration: none; display: block; transition: color 0.2s; }
+.cta-phone-num:hover { color: #6da0ff; }
+.cta-addr { font-size: 14px; color: #9aa1af; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); line-height: 1.6; }
 
 /* FOOTER */
-footer { background: var(--black); padding: 56px 0 28px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
-.footer-logo { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; color: var(--white); text-transform: uppercase; margin-bottom: 14px; }
-.footer-logo span { color: var(--red); }
-.footer-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 280px; font-weight: 300; }
-.footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 18px; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-.footer-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; font-weight: 300; }
-.footer-links a:hover { color: var(--red-bright); }
-.footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+footer { background: var(--card); border-top: 1px solid var(--line); padding: 60px 0 30px; }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; padding-bottom: 44px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.foot-logo { font-family: 'Sora', sans-serif; font-size: 21px; font-weight: 800; color: var(--ink); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.foot-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 290px; }
+.foot-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 18px; }
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.foot-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.foot-links a:hover { color: var(--blue); }
+.foot-bottom { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
 
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s, transform 0.7s; }
 .reveal.visible { opacity: 1; transform: none; }
 
 @media (max-width: 900px) {
-  .hero-content { grid-template-columns: 1fr; gap: 36px; }
-  .hero-stripe { display: none; }
-  .hero-card { display: none; }
-  .services-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .cta-wrap { grid-template-columns: 1fr; gap: 32px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { display: none; }
+  .services { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; gap: 40px; }
+  .reviews { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+  .cta-card { padding: 40px 28px; }
+  .foot-grid { grid-template-columns: 1fr; gap: 32px; }
   .nav-links { display: none; }
-  .container, .nav-inner, .hero-content { padding-left: 20px; padding-right: 20px; }
+  .container, .nav-inner, .hero-inner, .topbar-inner, .trust-strip-inner { padding-left: 20px; padding-right: 20px; }
 }
 </style>
 </head>
 <body>
 
-<div class="topbar">🔧 Family Owned & Trusted for 20+ Years — Call <a href="tel:7149431125">(714) 943-1125</a></div>
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 601 N Fairview St, Santa Ana, CA</span>
+    <span>🛞 Open 7 Days · <a href="tel:7148364822">Call (714) 836-4822</a></span>
+  </div>
+</div>
 
 <nav>
   <div class="nav-inner">
-    <div class="logo"><span class="logo-mark">🔧</span> Rudy's <span>Auto</span></div>
+    <div class="logo"><span class="logo-badge">🛞</span> Gutierrez Tires</div>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#reviews">Reviews</a></li>
-      <li><a href="tel:7149431125" class="nav-cta">Call Now</a></li>
+      <li><a href="tel:7148364822" class="nav-cta">Call Now</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-stripe"></div>
-  <div class="hero-content">
+  <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow"><span>Orange County's Honest Mechanic</span></div>
-      <h1>Repairs Done<span>Right. Period.</span></h1>
-      <p class="hero-desc">For over 20 years, Rudy's Auto Repair has kept Orange County driving with honest diagnostics, fair pricing, and quality work you can count on.</p>
+      <div class="hero-pill"><span class="hero-pill-badge">28 YRS</span> Serving Santa Ana since 1988</div>
+      <h1>Back On the Road,<br><span>Fast.</span></h1>
+      <p class="hero-desc">New tires, flat repairs, and wheel service done quick and done right. Nearly three decades keeping Santa Ana drivers rolling — at prices that can't be beat.</p>
       <div class="hero-actions">
-        <a href="tel:7149431125" class="btn-red">📞 Call Rudy's</a>
-        <a href="#services" class="btn-line">Our Services</a>
+        <a href="tel:7148364822" class="btn-primary">📞 Call (714) 836-4822</a>
+        <a href="#services" class="btn-soft">Our Services</a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-stars">★★★★★</span>
+        <span class="hero-trust-text"><strong>Trusted</strong> by local drivers for 28 years</span>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-label">Call For a Free Quote</div>
-      <a href="tel:7149431125" class="hero-card-phone">(714) 943-1125</a>
-      <div class="hero-card-hours">Mon–Fri: 8:00 AM – 6:00 PM</div>
-      <div class="hero-mini-stats">
-        <div class="mini-stat"><div class="mini-stat-n">20+</div><div class="mini-stat-l">Years</div></div>
-        <div class="mini-stat"><div class="mini-stat-n">5★</div><div class="mini-stat-l">Rated</div></div>
-        <div class="mini-stat"><div class="mini-stat-n">100%</div><div class="mini-stat-l">Honest</div></div>
+    <div class="hero-visual">
+      <div class="visual-card">
+        <div class="visual-label">Call Us Today</div>
+        <a href="tel:7148364822" class="visual-phone">(714) 836-4822</a>
+        <div class="visual-hours">Open 7 Days · 9:00 AM – 7:00 PM</div>
+        <div class="visual-divider"></div>
+        <div class="visual-stats">
+          <div><div class="vstat-n">28+</div><div class="vstat-l">Years</div></div>
+          <div><div class="vstat-n">$15</div><div class="vstat-l">Flat Repair</div></div>
+          <div><div class="vstat-n">7</div><div class="vstat-l">Days/Wk</div></div>
+        </div>
+      </div>
+      <div class="float-badge">
+        <div class="float-icon">⚡</div>
+        <div class="float-text"><strong>In & Out Fast</strong><span>Most jobs under 30 min</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="marquee">
-  <div class="marquee-track">
-    <span class="marquee-item">Oil Changes</span><span class="marquee-item">Brake Repair</span><span class="marquee-item">Engine Diagnostics</span><span class="marquee-item">AC &amp; Heating</span><span class="marquee-item">Tune-Ups</span><span class="marquee-item">Transmissions</span><span class="marquee-item">Oil Changes</span><span class="marquee-item">Brake Repair</span><span class="marquee-item">Engine Diagnostics</span><span class="marquee-item">AC &amp; Heating</span><span class="marquee-item">Tune-Ups</span><span class="marquee-item">Transmissions</span>
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-feat"><span class="trust-feat-icon">🛞</span> New & Used Tires</div>
+    <div class="trust-feat"><span class="trust-feat-icon">⚡</span> Fast Flat Repairs</div>
+    <div class="trust-feat"><span class="trust-feat-icon">💰</span> Unbeatable Prices</div>
+    <div class="trust-feat"><span class="trust-feat-icon">♿</span> Wheelchair Accessible</div>
+    <div class="trust-feat"><span class="trust-feat-icon">💳</span> All Cards Accepted</div>
   </div>
 </div>
 
 <section class="section" id="services">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="section-tag"><span>What We Do</span></div>
-      <h2 class="section-title">Complete Auto Care</h2>
-      <p class="section-sub">From routine maintenance to major repairs — we service all makes and models with the same honest approach.</p>
+    <div class="sec-head reveal">
+      <div class="sec-tag">Our Services</div>
+      <h2 class="sec-title">Everything Tires & Wheels</h2>
+      <p class="sec-sub">From a quick flat repair to a full set of new tires — we get you rolling fast and at a fair price.</p>
     </div>
-    <div class="services-grid reveal">
-      <div class="service"><span class="service-icon">🛢️</span><h3>Oil & Lube</h3><p>Fast, affordable oil changes and lube services to keep your engine running smooth and protected.</p></div>
-      <div class="service"><span class="service-icon">🛑</span><h3>Brake Repair</h3><p>Complete brake inspection, pad replacement, and rotor service to keep you stopping safely.</p></div>
-      <div class="service"><span class="service-icon">🔍</span><h3>Engine Diagnostics</h3><p>Check engine light on? We pinpoint the real problem with professional diagnostic equipment.</p></div>
-      <div class="service"><span class="service-icon">❄️</span><h3>AC & Heating</h3><p>Stay comfortable year-round with expert air conditioning and heating system repair.</p></div>
-      <div class="service"><span class="service-icon">⚙️</span><h3>Tune-Ups</h3><p>Keep your vehicle performing its best with full tune-ups and scheduled maintenance.</p></div>
-      <div class="service"><span class="service-icon">🔧</span><h3>Engine & Transmission</h3><p>Major engine and transmission repair, rebuilds, and replacements done right the first time.</p></div>
+    <div class="services reveal">
+      <div class="svc"><div class="svc-icon">🛞</div><h3>New Tires</h3><p>A large selection of new tires for every vehicle and budget, from top trusted brands.</p></div>
+      <div class="svc"><div class="svc-icon">♻️</div><h3>Used Tires</h3><p>Quality used tires inspected for safety — a budget-friendly option to get you back on the road.</p></div>
+      <div class="svc"><div class="svc-icon">🔧</div><h3>Flat Repair</h3><p>Fast, affordable flat and puncture repairs. Many fixes done while you wait, starting at just $15.</p></div>
+      <div class="svc"><div class="svc-icon">⚖️</div><h3>Balancing & Rotation</h3><p>Keep your tires lasting longer and your ride smooth with expert balancing and rotation.</p></div>
+      <div class="svc"><div class="svc-icon">🔩</div><h3>Rim Repair</h3><p>Bent rim from a pothole? We can often straighten and save your wheel instead of replacing it.</p></div>
+      <div class="svc"><div class="svc-icon">🚗</div><h3>Mounting & Installation</h3><p>Professional tire mounting and installation done quickly so you're never waiting around.</p></div>
     </div>
   </div>
 </section>
 
 <section class="section why" id="why">
   <div class="container">
-    <div class="section-head reveal" style="margin: 0 auto 60px; text-align: center;">
-      <div class="section-tag" style="justify-content: center;"><span>Why Rudy's</span></div>
-      <h2 class="section-title">The Honest Choice</h2>
-    </div>
-    <div class="why-grid reveal">
-      <div class="why-item"><div class="why-icon">💰</div><h4>Fair Pricing</h4><p>No upselling, no surprises. You pay for what you need — nothing more.</p></div>
-      <div class="why-item"><div class="why-icon">🤝</div><h4>Honest Advice</h4><p>We'll tell you straight, even if that means not doing the repair.</p></div>
-      <div class="why-item"><div class="why-icon">⏱️</div><h4>Fast Turnaround</h4><p>Quality work done efficiently to get you back on the road quickly.</p></div>
-      <div class="why-item"><div class="why-icon">🏆</div><h4>20+ Years</h4><p>Two decades of trusted service to the Orange County community.</p></div>
+    <div class="why-grid">
+      <div class="why-left reveal">
+        <div class="sec-tag">Why Gutierrez</div>
+        <h2>28 Years of Doing Right by Drivers</h2>
+        <p>Since 1988, we've kept Santa Ana moving with honest service, fast turnaround, and prices that beat the big chains every time.</p>
+        <div class="why-points">
+          <div class="why-point"><div class="why-check">✓</div><div class="why-point-text"><strong>Honest, Fair Pricing</strong><span>We fix what we can and charge what's fair — like a $15 flat repair.</span></div></div>
+          <div class="why-point"><div class="why-check">✓</div><div class="why-point-text"><strong>Fast Turnaround</strong><span>Most jobs done in under 30 minutes so you're not stuck waiting.</span></div></div>
+          <div class="why-point"><div class="why-check">✓</div><div class="why-point-text"><strong>Decades of Experience</strong><span>Nearly 30 years of expertise on every make and model.</span></div></div>
+        </div>
+      </div>
+      <div class="why-right reveal">
+        <div class="stat-tile"><div class="stat-tile-n">28+</div><div class="stat-tile-l">Years in business</div></div>
+        <div class="stat-tile blue"><div class="stat-tile-n">$15</div><div class="stat-tile-l">Flat repairs from</div></div>
+        <div class="stat-tile dark"><div class="stat-tile-n">7</div><div class="stat-tile-l">Days open weekly</div></div>
+        <div class="stat-tile"><div class="stat-tile-n">30m</div><div class="stat-tile-l">Average job time</div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section" id="reviews">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="section-tag"><span>Customer Reviews</span></div>
-      <h2 class="section-title">What Drivers Say</h2>
+    <div class="sec-head reveal">
+      <div class="sec-tag">Customer Reviews</div>
+      <h2 class="sec-title">What Drivers Are Saying</h2>
     </div>
-    <div class="reviews-grid reveal">
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Best mechanic ever. He actually stopped me from putting more money into my car and told me honestly it wasn't worth fixing. That kind of honesty is rare.</p>
-        <div class="review-author"><div class="review-avatar">JM</div><div><div class="review-name">Jessica M.</div><div class="review-meta">Orange, CA</div></div></div>
-      </div>
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">I trust Rudy and his staff with all repairs and maintenance to my vehicles. Always treated fairly and kindly. Customer service is number one here.</p>
-        <div class="review-author"><div class="review-avatar">DR</div><div><div class="review-name">David R.</div><div class="review-meta">Orange, CA</div></div></div>
-      </div>
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Great experience — very kind, personable service and a lower price than any other mechanic quoted me. My car needed a lot of work and they handled it all.</p>
-        <div class="review-author"><div class="review-avatar">AL</div><div><div class="review-name">Anthony L.</div><div class="review-meta">Orange, CA</div></div></div>
-      </div>
+    <div class="reviews reveal">
+      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">Had a bent rim and a flat from a pothole. Another shop said I needed a whole new tire — the owner came out, straightened the rim, fixed it good as new, all for $15. This place is the real deal.</p><div class="rev-author"><div class="rev-avatar">VM</div><div><div class="rev-name">Vanessa M.</div><div class="rev-meta">Santa Ana, CA</div></div></div></div>
+      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">Fast and efficient — in and out in less than 30 minutes. Prices are great and the service was friendly. Would definitely recommend to anyone needing tire work.</p><div class="rev-author"><div class="rev-avatar">JL</div><div><div class="rev-name">Jorge L.</div><div class="rev-meta">Santa Ana, CA</div></div></div></div>
+      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">Been coming here for years. Honest people, fair prices, and they always take care of me quickly. The only tire shop I trust in the area.</p><div class="rev-author"><div class="rev-avatar">RC</div><div><div class="rev-name">Roberto C.</div><div class="rev-meta">Santa Ana, CA</div></div></div></div>
     </div>
   </div>
 </section>
 
-<section class="section cta-section">
+<section class="cta">
   <div class="container">
-    <div class="cta-wrap">
-      <div class="reveal">
-        <h2>Ready When<span>You Are.</span></h2>
-        <p>Stop by or give us a call. We'll take a look, give you an honest assessment, and get you a fair quote — no pressure, no games.</p>
-        <a href="tel:7149431125" class="btn-red">📞 Call (714) 943-1125</a>
-      </div>
-      <div class="reveal">
-        <div class="cta-box">
-          <div class="cta-box-label">Get In Touch</div>
-          <a href="tel:7149431125" class="cta-box-phone">(714) 943-1125</a>
-          <div class="cta-box-addr"><span>📍</span><span>945 W Hoover Ave<br>Orange, CA 92867</span></div>
-          <div class="cta-box-hours"><strong>Hours:</strong> Monday–Friday, 8:00 AM – 6:00 PM</div>
+    <div class="cta-card">
+      <div class="cta-inner">
+        <div class="reveal">
+          <h2>Need Tires or a Flat Fixed? Come See Us.</h2>
+          <p>Stop by or give us a call. Fast, friendly tire service at prices that beat the big chains — open 7 days a week.</p>
+          <a href="tel:7148364822" class="btn-primary">📞 Call (714) 836-4822</a>
+        </div>
+        <div class="reveal">
+          <div class="cta-phone-box">
+            <div class="cta-phone-label">Call or Visit</div>
+            <a href="tel:7148364822" class="cta-phone-num">(714) 836-4822</a>
+            <div class="cta-addr">📍 601 N Fairview St<br>Santa Ana, CA 92703<br><br>Open 7 Days · 9:00 AM – 7:00 PM</div>
+          </div>
         </div>
       </div>
     </div>
@@ -307,40 +319,40 @@ footer { background: var(--black); padding: 56px 0 28px; }
 
 <footer>
   <div class="container">
-    <div class="footer-grid">
+    <div class="foot-grid">
       <div>
-        <div class="footer-logo">Rudy's <span>Auto Repair</span></div>
-        <p class="footer-desc">Family owned and operated auto repair serving Orange, Anaheim, Yorba Linda and surrounding Orange County for over 20 years. Honest work at a fair price.</p>
+        <div class="foot-logo"><span class="logo-badge">🛞</span> Gutierrez Tires</div>
+        <p class="foot-desc">Honest, fast tire and wheel service in Santa Ana since 1988. New and used tires, flat repairs, and more — at prices that can't be beat.</p>
       </div>
-      <div>
+      <div class="foot-col">
         <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#">Oil & Lube</a></li>
-          <li><a href="#">Brake Repair</a></li>
-          <li><a href="#">Engine Diagnostics</a></li>
-          <li><a href="#">AC & Heating</a></li>
-          <li><a href="#">Transmissions</a></li>
+        <ul class="foot-links">
+          <li><a href="#">New Tires</a></li>
+          <li><a href="#">Used Tires</a></li>
+          <li><a href="#">Flat Repair</a></li>
+          <li><a href="#">Balancing & Rotation</a></li>
+          <li><a href="#">Rim Repair</a></li>
         </ul>
       </div>
-      <div>
+      <div class="foot-col">
         <h4>Contact</h4>
-        <ul class="footer-links">
-          <li><a href="tel:7149431125">(714) 943-1125</a></li>
-          <li><a href="#">945 W Hoover Ave</a></li>
-          <li><a href="#">Orange, CA 92867</a></li>
-          <li><a href="#">Mon–Fri: 8AM–6PM</a></li>
+        <ul class="foot-links">
+          <li><a href="tel:7148364822">(714) 836-4822</a></li>
+          <li><a href="#">601 N Fairview St</a></li>
+          <li><a href="#">Santa Ana, CA 92703</a></li>
+          <li><a href="#">Open 7 Days a Week</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Rudy's Auto Repair. All rights reserved.</span>
-      <span>Family Owned Since 2004</span>
+    <div class="foot-bottom">
+      <span>© 2026 Gutierrez Tire Shop. All rights reserved.</span>
+      <span>Serving Santa Ana Since 1988</span>
     </div>
   </div>
 </footer>
 
 <script>
-const obs = new IntersectionObserver((es) => es.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100); }), { threshold: 0.1 });
+const obs = new IntersectionObserver((es) => es.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 90); }), { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
